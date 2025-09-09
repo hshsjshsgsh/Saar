@@ -58,12 +58,12 @@ def get_player_display_name(player, guild_id=None):
 
     # Get base name (Priority: nick > display_name > name > str(player))
     base_name = ""
-    if hasattr(player, 'nick') and player.nick:
-        base_name = player.nick
-    elif hasattr(player, 'display_name') and player.display_name:
-        base_name = player.display_name
-    elif hasattr(player, 'name') and player.name:
-        base_name = player.name
+    if hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
+    elif hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
+    elif hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
     else:
         base_name = str(player)
 
@@ -241,28 +241,28 @@ class TournamentConfigModal(discord.ui.Modal,
 
     title_field = discord.ui.TextInput(label="🏆 Tournament Title",
                                        placeholder="Enter tournament title...",
-                                       default="Stumble Guys Tournament",
+                                       default="",
                                        max_length=100)
 
     map_field = discord.ui.TextInput(label="🗺️ Map",
                                      placeholder="Enter map name...",
-                                     default="BlockDash",
+                                     default="",
                                      max_length=50)
 
     abilities_field = discord.ui.TextInput(label="💥 Abilities",
                                            placeholder="Enter abilities...",
-                                           default="Punch, Spatula, Kick",
+                                           default="",
                                            max_length=100)
 
     mode_and_players_field = discord.ui.TextInput(
         label="🎮 Mode & Max Players",
         placeholder="1v1 8 (format: mode maxplayers - only 1v1 mode allowed)",
-        default="1v1 8",
+        default="",
         max_length=20)
 
     prize_field = discord.ui.TextInput(label="💶 Prize",
                                        placeholder="Enter prize...",
-                                       default="Default",
+                                       default="",
                                        max_length=50)
 
     async def on_submit(self, interaction: discord.Interaction):

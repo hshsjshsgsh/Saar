@@ -226,28 +226,28 @@ class TournamentConfigModal(discord.ui.Modal,
 
     title_field = discord.ui.TextInput(label="🏆 Tournament Title",
                                        placeholder="Enter tournament title...",
-                                       default="Stumble Guys Tournament",
+                                       default="",
                                        max_length=100)
 
     map_field = discord.ui.TextInput(label="🗺️ Map",
                                      placeholder="Enter map name...",
-                                     default="BlockDash",
+                                     default="",
                                      max_length=50)
 
     abilities_field = discord.ui.TextInput(label="💥 Abilities",
                                            placeholder="Enter abilities...",
-                                           default="Punch, Spatula, Kick",
+                                           default="",
                                            max_length=100)
 
     mode_and_players_field = discord.ui.TextInput(
         label="🎮 Mode & Max Players",
         placeholder="1v1 8 (format: mode maxplayers - only 1v1 mode allowed)",
-        default="1v1 8",
+        default="",
         max_length=20)
 
     prize_field = discord.ui.TextInput(label="💶 Prize",
                                        placeholder="Enter prize...",
-                                       default="Default",
+                                       default="",
                                        max_length=50)
 
     async def on_submit(self, interaction: discord.Interaction):

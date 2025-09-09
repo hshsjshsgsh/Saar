@@ -58,12 +58,12 @@ def get_player_display_name(player, guild_id=None):
 
     # Get base name (Priority: nick > display_name > name > str(player))
     base_name = ""
-    if hasattr(player, 'nick') and player.nick:
-        base_name = player.nick
-    elif hasattr(player, 'display_name') and player.display_name:
-        base_name = player.display_name
-    elif hasattr(player, 'name') and player.name:
-        base_name = player.name
+    if hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
+    elif hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
+    elif hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
     else:
         base_name = str(player)
 
@@ -308,31 +308,26 @@ class TournamentConfigModal(discord.ui.Modal,
         tournament.active = False
 
         embed = discord.Embed(title=f"🏆 {tournament.title}", color=0x00ff00)
-        embed.add_field(name="🗺️ Map", value=tournament.map, inline=True)
-        embed.add_field(name="💥 Abilities",
+        embed.add_field(name="<:sgmap:1394258088575635601> Map", value=tournament.map, inline=True)
+        embed.add_field(name="<:Punch__Emote__Stumble_Guys:1411236060909797376> Abilities",
                         value=tournament.abilities,
                         inline=True)
         embed.add_field(name="🎮 Mode", value=mode, inline=True)
-        embed.add_field(name="💶 Prize", value=tournament.prize, inline=True)
-        embed.add_field(name="👥 Max Players",
+        embed.add_field(name="<:Gem:1411317094984712243> Prize", value=tournament.prize, inline=True)
+        embed.add_field(name="<:StumbleParty:1412491062106132492> Max Players",
                         value=str(max_players),
                         inline=True)
 
         # Enhanced Stumble Guys rules with updated emojis
         rules_text = (
-            "🔹 **NO TEAMING** - Teams are only allowed in designated team modes\n"
-            "🔸 **NO GRIEFING** - Don't intentionally sabotage other players\n"
-            "🔹 **NO EXPLOITING** - Use of glitches or exploits will result in disqualification\n"
-            "🔸 **FAIR PLAY** - Respect all players and play honorably\n"
-            "🔹 **NO RAGE QUITTING** - Leaving mid-match counts as a forfeit\n"
-            "🔸 **FOLLOW HOST** - Listen to tournament host instructions\n"
-            "🔹 **NO TOXICITY** - Keep chat friendly and respectful\n"
-            "🔸 **BE READY** - Join matches promptly when called\n"
-            "🔹 **NO ALTS** - One account per player only")
-
+"<:sgDefense:1411237084064124972>You have 2 minutes to join the match after receiving the code.\n"
+"<:sgDefense:1411237084064124972> No rematch in case of bugs or technical issues.\n"
+"<:sgDefense:1411237084064124972>Respect all players and tournament organizers.\n"
+"<:sgDefense:1411237084064124972> Match codes will be sent in private messages.\n"
+"<:sgDefense:1411237084064124972>For any issues, contact support immediately.\n")
         embed.add_field(
             name=
-            "<:notr:1409923674387251280> **Stumble Guys Tournament Rules**",
+            "<:sword:1394980934482137158> **Important Rules**",
             value=rules_text,
             inline=False)
 

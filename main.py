@@ -440,23 +440,7 @@ class TournamentView(discord.ui.View):
             await interaction.response.edit_message(view=self)
             
             # Create detailed registration confirmation message
-            registration_message = f"""<:info:1407789948219691122>({tournament.title}) details:
-
-<:sgmap:1394258088575635601>Maps: {tournament.map}                                                             <:StumbleParty:1412491062106132492>Players: {len(tournament.players)}/{tournament.max_players}
-<:Punch__Emote__Stumble_Guys:1411236060909797376>Abilities: {tournament.abilities}
-<:Gem:1411317094984712243>Prize: {tournament.prize}
-
-<:sword:1394980934482137158>Important Rules
-<:sgDefense:1411237084064124972>You have 2 minutes to join the match after receiving the code.
-<:sgDefense:1411237084064124972> No rematch in case of bugs or technical issues.
-<:sgDefense:1411237084064124972>Respect all players and tournament organizers.
-<:sgDefense:1411237084064124972> Match codes will be sent in private messages.
-<:sgDefense:1411237084064124972>For any issues, contact support immediately.
-
-📢 Additional Information
-📩 Match codes are sent via DM. Check your messages!
-⏱️ You have 2 minutes to join in the lobby.
-🆘 Need help? Contact support immediately."""
+            registration_message = f"""Sucesfully registered!✅"""
             
             await interaction.followup.send(registration_message, ephemeral=True)
 

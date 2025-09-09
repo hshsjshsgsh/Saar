@@ -322,9 +322,10 @@ class TournamentConfigModal(discord.ui.Modal,
         tournament.eliminated = []
         tournament.active = False
 
-        embed_description = f"""<:info:1407789948219691122>({tournament.title}) details:
+        embed_description = f"""<:info:1407789948219691122>{tournament.title} details:
 
-<:sgmap:1394258088575635601>Maps: {tournament.map}                                                             <:StumbleParty:1412491062106132492>Players: 0/{max_players}
+<:sgmap:1394258088575635601>Maps: {tournament.map}
+<:StumbleParty:1412491062106132492>Players:{max_players}
 <:Punch__Emote__Stumble_Guys:1411236060909797376>Abilities: {tournament.abilities}
 <:Gem:1411317094984712243>Prize: {tournament.prize}
 

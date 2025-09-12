@@ -70,15 +70,15 @@ def add_bracket_role(guild_id, user_id, emoji):
 def get_player_display_name(player, guild_id=None):
     """Get player display name with bracket emojis"""
     if isinstance(player, FakePlayer):
-        return player.display_name
+        return player.user.name
 
     # Get base name (Priority: nick > display_name > name > str(player))
-    if hasattr(player, 'nick') and player.nick:
-        base_name = player.nick
-    elif hasattr(player, 'display_name') and player.display_name:
-        base_name = player.display_name
-    elif hasattr(player, 'name') and player.name:
-        base_name = player.name
+    if hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
+    elif hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
+    elif hasattr(player, 'user.name') and player.user.name:
+        base_name = player.user.name
     else:
         base_name = str(player)
 
@@ -506,29 +506,29 @@ class TournamentConfigModal(discord.ui.Modal,
 
     title_field = discord.ui.TextInput(label="🏆 Tournament Title",
                                        placeholder="Enter tournament title...",
-                                       default="Stumble Guys Tournament",
+                                       default="",
                                        max_length=100)
 
     max_players_field = discord.ui.TextInput(
         label="👥 Max Players",
         placeholder="Enter max players (e.g., 16)...",
-        default="16",
+        default="",
         max_length=3)
 
     map_field = discord.ui.TextInput(label="🗺️ Tournament Map",
                                      placeholder="Enter map name...",
-                                     default="Default Map",
+                                     default="",
                                      max_length=50)
 
     abilities_field = discord.ui.TextInput(
         label="⚡ Abilities",
         placeholder="Enter abilities setting...",
-        default="Enabled",
+        default="",
         max_length=20)
 
     prize_field = discord.ui.TextInput(label="🎁 Prize",
                                        placeholder="Enter prize description...",
-                                       default="Victory Crown 👑",
+                                       default="",
                                        max_length=100)
 
     async def on_submit(self, interaction: discord.Interaction):
